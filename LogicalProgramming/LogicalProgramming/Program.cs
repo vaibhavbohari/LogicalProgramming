@@ -1,20 +1,25 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Welcome to Fibonacci Series !");
+Console.WriteLine("Welcome to Prime Number !");
 
-
+int number, sum = 0, n;
+Console.Write("enter the Number");
+number = Convert.ToInt32(Console.ReadLine());
+n = number;
+for (int i = 1; i < number; i++)
+{
+    if (number % i == 0)
     {
-        int n1 = 0,
-        n2 = 1, 
-        n3, i, 
-        number;
-        Console.Write("Enter the number of elements: ");
-       number= Convert.ToInt32(Console.ReadLine());
-        Console.Write(n1 + " " + n2 + " "); //printing 0 and 1    
-        for (i = 2; i < number; ++i) //loop starts from 2 because 0 and 1 are already printed    
-        {
-            n3 = ( n1 + n2);
-            Console.Write(n3 + " ");
-            n1 = n2;
-            n2 = n3;
-        }
+        sum = sum + i;
     }
+}
+if (sum == n)
+{
+    Console.WriteLine("\n Entered number is a perfect number");
+    Console.ReadLine();
+}
+else
+{
+    Console.WriteLine("\n Entered number is not a perfect number");
+    
+}
+         
