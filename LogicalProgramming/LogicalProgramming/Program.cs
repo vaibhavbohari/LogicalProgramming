@@ -1,19 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Welcome to Prime Number !");
+
 {
-    int n, i, m = 0, sum = 0;
-    Console.Write("Enter the Number to check Prime: ");
-    n = Convert.ToInt32(Console.ReadLine());
-    m = n / 2;
-    for (i = 2; i <= m; i++)
+    int num = 0;
+    int temp = 0;
+    int remainder = 0;
+    int reverse = 0;
     {
-        if (n % i == 0)
-        {
-            Console.Write("Number is not Prime.");
-            sum = 1;
-            break;
-        }
+        Console.WriteLine("Enter an integer \n");
     }
-    if (sum == 0)
-        Console.Write("Number is Prime.");
+    num = Convert.ToInt32(Console.ReadLine());
+
+    temp = num;
+    while (num > 0)
+    {
+        remainder = num % 10;
+        reverse = reverse * 10 + remainder;
+        num /= 10;
+    }
+    Console.WriteLine("Given number is = {0}", temp);
+    Console.WriteLine("Its reverse is = {0}", reverse);
 }
