@@ -1,29 +1,43 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading;
-class Program
+
+public class VendingMachine
 {
-    static void Main()
-    {
 
-        // Create new stopwatch.
-        Stopwatch stopwatch = new Stopwatch();
+	// function to count and
+	// print currency notes
+	public static void countCurrency(int amount)
+	{
+		int[] notes = { 1000, 500, 100, 50, 10, 5, 2, 1 };
+		int[] Counter = new int[8];
 
-        Console.WriteLine("Starting Time ");
-        stopwatch.Start();
+		// count notes 
+		for (int i = 0; i < 8; i++)
+		{
+			if (amount >= notes[i])
+			{
+				Counter[i] = amount / notes[i];
+				amount = amount - Counter[i] * notes[i];
+			}
+		}
 
-        // Do something.
-        for (int i = 0; i < 1000; i++)
-        {
-            Thread.Sleep(5);
-        }
+		// Print notes
+		Console.WriteLine("Currency Count ->");
+		for (int i = 0; i < 8; i++)
+		{
+			if (Counter[i] != 0)
+			{
+				Console.WriteLine(notes[i] + " : "
+					+ Counter[i]);
+			}
+		}
+	}
 
-        Console.WriteLine("Time stopped");
-        stopwatch.Stop();
+	public static void Main()
+	{
+		Console.WriteLine("Enter Amount");
+		int amount = Convert.ToInt32(Console.ReadLine());
+		countCurrency(amount);
+	}
 
-        // Write result.
-        Console.WriteLine("Time elapsed: {0}", stopwatch.Elapsed);
-    }
+
 }
-
-
